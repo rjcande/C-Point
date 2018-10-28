@@ -35,9 +35,9 @@
                     <?php } ?> 
 
                     <?php if(isset($_SESSION['user'])) { ?>
-                    <li class="nav-item">
+                    <!-- <li class="nav-item">
                         <a class="nav-link" href="index3.php"><strong>About</strong></a>
-                    </li>
+                    </li> -->
 
                     <?php } ?>
 
@@ -303,7 +303,7 @@ class="close" title="Close Modal">&times;</span>
 
   <!-- Modal Content -->
   <form class="modal-content animate" action="./connections/register_endpoint.php" method="POST">
-    <h2 id="h2m1">Swelas</h2>
+    <h2 id="h2m1">C-Point</h2>
 
 
 

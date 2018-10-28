@@ -37,12 +37,12 @@
 
                      <!-- Navbar brand -->
                     <li class="nav-item">
-            <a class="navbar-brand" href="index.php" id="logoname"><h2 id="h2m">Swelas</h2></a>
+            <a class="navbar-brand" href="index.php" id="logoname"><h2 id="h2m">C-Point</h2></a>
                     </li>
 
-                    <li class="nav-item">
+                    <!-- <li class="nav-item">
                         <a class="nav-link" href="index3.php"><strong>About</strong></a>
-                    </li>
+                    </li> -->
 
 
                     <li class="nav-item">

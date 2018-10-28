@@ -1,16 +1,11 @@
 <?php 
 require 'connections/connect.php';
 //////////////////////////////////
-// session_start();
+session_start();
 
-// $username = $_SESSION['username'];
-// $password = $_SESSION['password'];
-// $sessionSql = "SELECT role_id FROM users WHERE username = '$username' AND password = '$password'";
-// $role = mysqli_query($conn,$sessionSql);
-
-// if(!isset($role)){///
-//   header('location: ../newproject/index.php');///
-// }///
+if(!isset($_SESSION['role_id']) || ($_SESSION['role_id'] != 1)){///
+  header('location: ../newproject/index.php');///
+}///
 //////////////////////////////////
 
 function getTitle() {

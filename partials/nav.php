@@ -1,3 +1,7 @@
+<?php
+    require("connections/connect.php");
+    session_start();
+?>
 <header>
     
 <!--Navbar-->
@@ -28,7 +32,7 @@
                         </a>
 
                 <li class="nav-item dropdown">
-                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Footwear
+                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Categories
             
                     </a>
 
@@ -38,17 +42,11 @@
 
                     <?php 
                     require 'connections/connect.php'; 
-
                     $sql = "SELECT * FROM categories ";
-
                     $categories = mysqli_query($conn,$sql);
-
                     foreach($categories as $category){  ?>
-                    
                      <a class="dropdown-item" id="nav" href="index2_user.php?cat=<?= $category['id']; ?>" style="color: white;"><?php echo $category['name']; ?> </a>
-                        
                     <?php }  ?>
-                    
                      <a class="dropdown-item" id="nav" href="connections/sort.php?p=asc" style="color: white;">Lowest to Highest Price</a>
                      <a class="dropdown-item" id="nav" href="connections/sort.php?p=desc" style="color: white;">Highest to Lowest Price</a>
                     </div>
@@ -64,16 +62,15 @@
                     <?php if(isset($_SESSION['admin'])) { ?>
                         <li class="nav-item">
                             <a class="nav-link" href="index2.php"><strong>Admin</strong>
-                           
                         </a>
                     <?php } ?> 
 
-                    <!-- <?php if(isset($_SESSION['user'])) { ?>
+                    <?php if(isset($_SESSION['user'])) { ?>
                     <li class="nav-item">
-                        <a class="nav-link" href="index3.php"><strong>About</strong></a>
+                        <!-- <a class="nav-link" href="index3.php"><strong>About</strong></a> -->
                     </li>
 
-                    <?php } ?> -->
+                    <?php } ?>
 
 
                     <!-- <li class="nav-item"> -->
@@ -81,7 +78,7 @@
                         <!-- <a class="nav-link" onclick="document.getElementById('id01').style.display='block'"><strong>Blog</strong></a>
                         
                     </li>
- -->
+                    -->
                   
 
 
@@ -237,7 +234,7 @@ span.psw {
     margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
     border: 1px solid #888;
     width: 30%;
-    height: 920px; 
+    height: 930px; 
 }
 
 .modal-content {
@@ -251,9 +248,10 @@ span.psw {
 
 /* The Close Button (x) */
 .close {
-    position: absolute;
-    right: 25px;
-    top: 0;
+    /* position: absolute; */
+    /* right: 0px; */
+    /* top: 0; */
+    margin-left: 94%;
     color: #000;
     font-size: 35px;
     font-weight: bold;
@@ -325,11 +323,11 @@ span.psw {
 
 <!-- The Modal login-->
 <div id="id01" class="modal">
-  <span onclick="document.getElementById('id01').style.display='none'" 
-class="close" title="Close Modal">&times;</span>
+  
 
   <!-- Modal Content -->
   <form class="modal-content animate" action="connections/authenticate.php" method="POST">
+  <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
     <h2 id="h2m1">C-point</h2>
 
     <div class="imgcontainer">
@@ -378,6 +376,28 @@ class="close" title="Close Modal">&times;</span>
     </div>
 </li>
 
+<li class="nav-item">
+    <div class="mt-3">
+        <?php 
+        // session_start();
+        error_reporting(0);
+        $user = $_SESSION['username'];
+        $pass = $_SESSION['password'];
+
+        $uname = "SELECT * FROM users WHERE username = '$user' AND password = '$pass'";
+        $user = mysqli_query($conn,$uname);
+        if(mysqli_affected_rows($conn) > 0){
+            
+            while($row = mysqli_fetch_assoc($user)){
+                $username = $row['username'];
+            }
+            echo "<p style='color:white'>Hello, ".$username."</p>";
+        }
+
+        ?>
+    </div>
+</li>
+
 
 <script>
 function move_navigation($navigation, $MQ) {
@@ -396,12 +416,11 @@ function move_navigation($navigation, $MQ) {
 
 <!-- The Modal -->
 <div id="id02" class="modal2">
-  <span onclick="document.getElementById('id02').style.display='none'" 
-class="close" title="Close Modal">&times;</span>
 
   <!-- Modal Content -->
   <!-- <form class="modal-content animate" action="./connections/register_endpoint.php" method="POST" id="form1"> -->
   <form class="modal-content-register animate" method="POST" id="form1">
+  <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
     <h2 id="h2m1">C-point</h2>
 
 
@@ -474,6 +493,17 @@ class="close" title="Close Modal">&times;</span>
 ?>
 
 <script type="text/javascript">
+
+        $('#loginBtn').click({
+            $.ajax({
+                url: './connections/authenticate.php',
+                method: 'post',
+                data:{'username':username, 'password':password},
+                success:function(output){
+                    alert(output);
+                }
+            })
+        });
        
         $('#registerBtn').click( () => {
 
@@ -533,7 +563,7 @@ class="close" title="Close Modal">&times;</span>
             }
         });
 
-    </script>
+</script>
     
 
                    

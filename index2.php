@@ -205,7 +205,7 @@ function get_admin_contents() { ?>
                     ?>
                     <td>
                         <select name="category_id">
-                        <?php
+                    <?php
                     foreach($categories as $category) {
                         extract($category);?>
                         <option value="<?php echo $id?>"><?php echo $name ?></option>        

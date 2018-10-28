@@ -1,4 +1,5 @@
 <?php
+error_reporting(0);
 require 'connections/connect.php';
 
 function getTitle() {
@@ -29,10 +30,20 @@ function getContent() {
         <section id="training-programs" class="text-center">
 
     <!-- Heading -->
-    <h2 class="mb-5 font-weight-bold" id="dress-shoes"> Originals
-      
-     </h2>
-
+    <?php
+    if($_GET['cat'] == 1){
+      echo "<h2 class='mb-5 font-weight-bold' id='dress-shoes'> Original Dress Shoes</h2>";
+    }
+    else if($_GET['cat'] == 2){
+      echo "<h2 class='mb-5 font-weight-bold' id='dress-shoes'> Original Casual Shoes</h2>";
+    }
+    else if($_GET['cat'] == 3){
+      echo "<h2 class='mb-5 font-weight-bold' id='dress-shoes'> Original Black Shoes</h2>";
+    }
+    else{
+      echo "<h2 class='mb-5 font-weight-bold' id='dress-shoes'> Originals</h2>";
+    }
+    ?>
       <div class="row d-flex justify-content-left mb-4"> <!--Grid row-->
 
           

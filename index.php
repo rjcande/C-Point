@@ -56,7 +56,7 @@ function getContent()
 <div class="main">
 
   <h2 id="main-text">
-    Best oxfords in Manila
+    Best leather shoes in Metro Manila
   </h2>
 
   <h2 id="main-text1">
@@ -90,47 +90,51 @@ function getContent()
 
       <div class="row">
 
-       <div class="col-6">
+      <div class="col-6">
         <div class="hovereffect">
           <img class="img-responsive" src="assets/images/shoe6.jpg" alt="" style=" width: 565px; height: 350px;">
             <div class="overlay">
-                
+            <a style="text-decoration:none" href="./index2_user.php?cat=1">
               <p>
-                COLLECTION
+                DRESS SHOES
               </p>
+            </a>
             </div>
-    </div>
-  </div>
-       <div class="col-6">
+        </div>
+      </div>
+      <div class="col-6">
         <div class="hovereffect">
            <img class="img-responsive" src="assets/images/shoe10.jpg" alt="" style=" width: 565px; height: 350px;">
             <div class="overlay">
-                
+            <a style="text-decoration:none" href="./index2_user.php?cat=2">
               <p>
-                FORMAL
+                CASUAL SHOES
               </p>
+            </a>
             </div>
-    </div>
-  </div>
+        </div>
+      </div>
 </div>  <!-- end row -->
 
      
    <main class="mt-5">
  
   <div class="row">
-  <div class="col-12" id="black">
-        <div class="hovereffect">
-           <img class="img-responsive" src="assets/images/collection-main.jpg" alt="" style=" width: 1200px; height: 300px;">
-            <div class="overlay">
-                
-              <p>
-                 BESPOKE
-              </p>
-            </div>
+    <div class="col-12" id="black">
+      <div class="hovereffect">
+        <img class="img-responsive" src="assets/images/collection-main.jpg" alt="" style=" width: 1200px; height: 300px;">
+        <div class="overlay">
+          <a style="text-decoration:none" href="./index2_user.php?cat=3">
+            <p>
+                BLACK SHOES
+            </p>
+          </a>
+        </div>
+      </div>
     </div>
+  </div>  
+
   </div>
-</div>  
-     </div>
   </div> <!-- row end -->
   </div>
 
@@ -152,14 +156,21 @@ function getContent()
 
 <div class="row">
 <div class="col-12" id="main-pic-2">
-  <h2 id="main-pic-text">ABOUT OUR STORE</h2>
-  <!-- <img class="anatomy" src="assets/images/shoe-blueprint.png"> -->
+    <h2 id="main-pic-text">
+    About our Store
+  </h2>
+
+  <center>
+    <h3 style="text-align:center">
+      The store is located in Cpoint Marikina, 444 Shoe Avenue Ext Concepcion Uno, Marikina
+    </h3>
+  </center>
 </div>
 </div>
 
 
 
-
+<button onclick="topFunction()" id="myBtn" title="Go to top" class="fa fa-arrow-up"></button>
 </main>
 <!--Main layout-->
 
@@ -210,6 +221,24 @@ ml.timelines["ml5"] = anime.timeline({loop: true})
   });
 </script>
 
+<script>
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        document.getElementById("myBtn").style.display = "block";
+    } else {
+        document.getElementById("myBtn").style.display = "none";
+    }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+    document.body.scrollTop = 0; // For Safari
+    document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+}
+</script>
 
 
 <script>

@@ -1,4 +1,7 @@
-
+<?php
+    require("connections/connect.php");
+    session_start();
+?>
 <header>
     
 <!--Navbar-->
@@ -30,7 +33,7 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="#"><strong>Footwear</strong>
+                        <a class="nav-link" href="#"><strong>Categories</strong>
 
                         </a>
                     </li>

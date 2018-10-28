@@ -1,3 +1,7 @@
+<?php
+    require("connections/connect.php");
+    // session_start();
+?>
 <header>
     
 <!--Navbar-->
@@ -28,10 +32,10 @@
 
 
                     <?php if(isset($_SESSION['admin'])) { ?>
-                        <li class="nav-item">
-                        <a class="nav-link" href="index2.php"><strong>Admin</strong>
+                        <!-- <li class="nav-item">
+                        <a class="nav-link mt-3 pr-4" href="index2.php"><strong>Admin</strong>
                            
-                        </a>
+                        </a> -->
                     <?php } ?> 
 
                     <?php if(isset($_SESSION['user'])) { ?>
@@ -187,20 +191,29 @@ span.psw {
 }
 
 /* Modal Content/Box */
+.modal-content-register {
+    background-color: #fefefe;
+    margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+    border: 1px solid #888;
+    width: 30%;
+    height: 930px; 
+}
+
 .modal-content {
     background-color: #fefefe;
     margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
     border: 1px solid #888;
     width: 30%;
-    height: 600px; 
+    height: 400px; 
 }
 
 
 /* The Close Button (x) */
 .close {
-    position: absolute;
-    right: 25px;
-    top: 0;
+    /* position: absolute; */
+    /* right: 0px; */
+    /* top: 0; */
+    margin-left: 94%;
     color: #000;
     font-size: 35px;
     font-weight: bold;
@@ -280,6 +293,28 @@ span.psw {
     </div>
 </li>
 
+<li class="nav-item">
+    <div class="mt-3">
+        <?php 
+        // session_start();
+        error_reporting(0);
+        $user = $_SESSION['username'];
+        $pass = $_SESSION['password'];
+
+        $uname = "SELECT * FROM users WHERE username = '$user' AND password = '$pass'";
+        $user = mysqli_query($conn,$uname);
+        if(mysqli_affected_rows($conn) > 0){
+            
+            while($row = mysqli_fetch_assoc($user)){
+                $username = $row['username'];
+            }
+            echo "<p style='color:white'>Hello, ".$username."</p>";
+        }
+
+        ?>
+    </div>
+</li>
+
 
 <script>
 function move_navigation($navigation, $MQ) {
@@ -298,49 +333,66 @@ function move_navigation($navigation, $MQ) {
 
 <!-- The Modal -->
 <div id="id02" class="modal2">
-  <span onclick="document.getElementById('id02').style.display='none'" 
-class="close" title="Close Modal">&times;</span>
 
   <!-- Modal Content -->
-  <form class="modal-content animate" action="./connections/register_endpoint.php" method="POST">
-    <h2 id="h2m1">C-Point</h2>
+  <!-- <form class="modal-content animate" action="./connections/register_endpoint.php" method="POST" id="form1"> -->
+  <form class="modal-content-register animate" method="POST" id="form1">
+  <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
+    <h2 id="h2m1">C-point</h2>
 
 
 
     <div class="container-user">
 
-            <div class="form-group" id="form1">
+    <div class="form-group">
+        <label for="firstName">First Name: </label>
+        <input type="text" name="firstName" id="firstName" class="form-control">
+        <span></span>
+    </div>
 
-                <label for="regusername">Username: </label>
-                <input type="text" name="regusername" id="regusername" class="form-control">
-                <span></span>
-            </div>
-            
-            <div class="form-group"">
+    <div class="form-group">
+        <label for="lastName">Last Name: </label>
+        <input type="text" name="lastName" id="lastName" class="form-control">
+        <span></span>
+    </div>
 
-                <label for="address">Address: </label>
-                <input type="text" name="address" id="address" class="form-control">
-                <span></span>
-            </div>
-           
-            <div class="form-group">
-                <label for="email">Email: </label>
-                <input type="email" name="email" id="email" class="form-control">
-                <span></span>
-            </div>
+    <div class="form-group">
+        <label for="regusername">Username: </label>
+        <input type="text" name="regusername" id="regusername" class="form-control">
+        <span></span>
+    </div>
 
-            <div class="form-group">
-                <label for="password">Password: </label>
-                <input type="password" name="regpassword" id="regpassword" class="form-control">
-                <span></span>
-            </div>
-            <div class="form-group">
-                <label for="confirm-password">Confirm Password: </label>
-                <input type="password" name="confirm_password" id="confirm_password" class="form-control">
-                <span></span>
-            </div>
-      
-      <button type="button" class="btn btn-primary"  onclick="return false;" id="registerBtn">Register</button>
+    <div class="form-group">
+        <label for="contactNum">Contact Number: </label>
+        <input type="text" name="contactNum" id="contactNum" class="form-control">
+        <span></span>
+    </div>
+
+    <div class="form-group"">
+
+        <label for="address">Address: </label>
+        <input type="text" name="address" id="address" class="form-control">
+        <span></span>
+    </div>
+
+    <div class="form-group">
+        <label for="email">Email: </label>
+        <input type="email" name="email" id="email" class="form-control">
+        <span></span>
+    </div>
+
+    <div class="form-group">
+        <label for="password">Password: </label>
+        <input type="password" name="regpassword" id="regpassword" class="form-control">
+        <span></span>
+    </div>
+    <div class="form-group">
+        <label for="confirm-password">Confirm Password: </label>
+        <input type="password" name="confirm_password" id="confirm_password" class="form-control">
+        <span></span>
+    </div>
+
+    <button type="button" class="btn btn-primary"  onclick="return false;" id="registerBtn">Register</button>
 
     </div>
 
@@ -358,64 +410,66 @@ class="close" title="Close Modal">&times;</span>
 ?>
 
 <script type="text/javascript">
+       
+       $('#registerBtn').click( () => {
 
-        
-        $('#registerBtn').click( () => {
+           const usernameREG = $('#regusername').val();
+           const username = $('#regusername').val();
+           const address = $('#address').val();
+           const password = $('#regpassword').val();
+           const firstName = $('#firstName').val();
+           const lastName = $('#lastName').val();
+           const contactNum = $('#contactNum').val();
+           const confirmPassword = $('#confirm_password').val();
+           const email = $('#email').val()
+           //let users = JSON.parse('<?php //echo json_encode($users); ?>'); //to read $users into js lang.
+           let errorFlag = false; //to define the value of the conditions 
+           if(username.length == 0) { //username field is empty
+               $('#regusername').next().css('color', 'red');
+               $('#regusername').next().html('this field is required');
+               errorFlag = true;       
+           } else {
+               $('#regusername').next().css('color', 'green');
+               $('#regusername').next().html(''); 
+               $.ajax({
+               url : './connections/check_username.php',
+               method : 'post',
+               data: {'regusername' : usernameREG, 'email': email, 'password': password, 'address':address, 'firstName':firstName, 'lastName':lastName,'contactNum':contactNum},
+           }).done( data => {
+               alert(data);
+           });
 
-            const usernameREG = $('#regusername').val();
+           }
+           
+           if(password.length == 0) {
+               $('#regpassword').next().css('color', 'red');
+               $('#regpassword').next().html('password is required');
+               errorFlag = true;
+           } else {
+               $('#regpassword').next().html('');
+           }
+               
 
-            $.ajax({
-                url : './connections/check_username.php',
-                method : 'post',
-                data: {'regusername' : usernameREG},
-            }).done( data => {
-                alert(data);
-            });
+           if(password !== confirmPassword) {
+               $('#confirm_password').next().css('color', 'red');
+               $('#confirm_password').next().html('passwords did not match');
+               errorFlag = true;
 
+           // } else if (password.length == 0) {
+           //  errorFlag = true;
+               
+           } else {
+               // to (blank) satisfy the password did not match condition
+               $('#confirm_password').next().html('');
+           }
+           
+           // if errors in other conditions are true, this line would execute
+           if(errorFlag == false){
+               $('#form1').submit();
+           }
+       });
 
-            const username = $('#regusername').val();
-            const password = $('#regpassword').val();
-            const confirmPassword = $('#confirm_password').val();
-            //let users = JSON.parse('<?php //echo json_encode($users); ?>'); //to read $users into js lang.
-            let errorFlag = false; //to define the value of the conditions 
-            if(username.length == 0) { //username field is empty
-                $('#regusername').next().css('color', 'red');
-                $('#regusername').next().html('this field is required');
-                errorFlag = true;       
-            } else {
-                $('#regusername').next().css('color', 'green');
-                $('#regusername').next().html(''); 
-            }
-            
-            if(password.length == 0) {
-                $('#regpassword').next().css('color', 'red');
-                $('#regpassword').next().html('password is required');
-                errorFlag = true;
-            } else {
-                $('#regpassword').next().html('');
-            }
-                
-
-            if(password !== confirmPassword) {
-                $('#confirm_password').next().css('color', 'red');
-                $('#confirm_password').next().html('passwords did not match');
-                errorFlag = true;
-
-            // } else if (password.length == 0) {
-            //  errorFlag = true;
-                
-            } else {
-                // to (blank) satisfy the password did not match condition
-                $('#confirm_password').next().html('');
-            }
-            
-            // if errors in other conditions are true, this line would execute
-            if(errorFlag == false){
-                $('#form1').submit();
-            }
-        });
-
-    </script>
+</script>
     
 
                    

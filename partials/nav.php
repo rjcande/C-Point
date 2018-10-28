@@ -63,7 +63,7 @@
 
                     <?php if(isset($_SESSION['admin'])) { ?>
                         <li class="nav-item">
-                        <a class="nav-link" href="index2.php"><strong>Admin</strong>
+                            <a class="nav-link" href="index2.php"><strong>Admin</strong>
                            
                         </a>
                     <?php } ?> 

@@ -32,14 +32,7 @@ require 'connect.php';
 				header('location: ../index.php');
 			}
 		}
-	} else {
+	} elseif(mysqli_num_rows($result)==0) {
       echo " You Have Entered Incorrect Password";
     }  
 ?>
-
-
-
-
-
-
-

@@ -232,12 +232,20 @@ span.psw {
 }
 
 /* Modal Content/Box */
+.modal-content-register {
+    background-color: #fefefe;
+    margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+    border: 1px solid #888;
+    width: 30%;
+    height: 920px; 
+}
+
 .modal-content {
     background-color: #fefefe;
     margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
     border: 1px solid #888;
     width: 30%;
-    height: 600px; 
+    height: 400px; 
 }
 
 
@@ -330,15 +338,15 @@ class="close" title="Close Modal">&times;</span>
 
     <div class="container-user">
       <label for="username"><b>Username</b></label>
-      <input type="text" placeholder="Enter Username" name="username" required>
+      <input type="text" placeholder="Enter Username" name="username" id="loginUsername" required>
 
       <label for="password"><b>Password</b></label>
-      <input type="password" placeholder="Enter Password" name="password" required>
+      <input type="password" placeholder="Enter Password" name="password" id="loginPassword" required>
 
-      <button class="btn btn-primary" type="submit" name="loginBtn">Login</button>
-      <label>
+      <button class="btn btn-primary" type="submit" name="loginBtn" id="loginBtn">Login</button>
+      <!-- <label>
         <input type="checkbox" checked="checked" name="remember"> Remember me
-      </label>
+      </label> -->
     </div>
 
     <!-- <div class="container-bottom" style="background-color:#f1f1f1">
@@ -392,7 +400,8 @@ function move_navigation($navigation, $MQ) {
 class="close" title="Close Modal">&times;</span>
 
   <!-- Modal Content -->
-  <form class="modal-content animate" action="./connections/register_endpoint.php" method="POST" id="form1">
+  <!-- <form class="modal-content animate" action="./connections/register_endpoint.php" method="POST" id="form1"> -->
+  <form class="modal-content-register animate" method="POST" id="form1">
     <h2 id="h2m1">C-point</h2>
 
 
@@ -400,9 +409,26 @@ class="close" title="Close Modal">&times;</span>
     <div class="container-user">
 
             <div class="form-group">
+                <label for="firstName">First Name: </label>
+                <input type="text" name="firstName" id="firstName" class="form-control">
+                <span></span>
+            </div>
+            
+            <div class="form-group">
+                <label for="lastName">Last Name: </label>
+                <input type="text" name="lastName" id="lastName" class="form-control">
+                <span></span>
+            </div>
 
+            <div class="form-group">
                 <label for="regusername">Username: </label>
                 <input type="text" name="regusername" id="regusername" class="form-control">
+                <span></span>
+            </div>
+
+            <div class="form-group">
+                <label for="contactNum">Contact Number: </label>
+                <input type="text" name="contactNum" id="contactNum" class="form-control">
                 <span></span>
             </div>
             
@@ -448,13 +474,16 @@ class="close" title="Close Modal">&times;</span>
 ?>
 
 <script type="text/javascript">
-
-        
+       
         $('#registerBtn').click( () => {
 
             const usernameREG = $('#regusername').val();
             const username = $('#regusername').val();
+            const address = $('#address').val();
             const password = $('#regpassword').val();
+            const firstName = $('#firstName').val();
+            const lastName = $('#lastName').val();
+            const contactNum = $('#contactNum').val();
             const confirmPassword = $('#confirm_password').val();
             const email = $('#email').val()
             //let users = JSON.parse('<?php //echo json_encode($users); ?>'); //to read $users into js lang.
@@ -469,7 +498,7 @@ class="close" title="Close Modal">&times;</span>
                 $.ajax({
                 url : './connections/check_username.php',
                 method : 'post',
-                data: {'regusername' : usernameREG, 'email': email},
+                data: {'regusername' : usernameREG, 'email': email, 'password': password, 'address':address, 'firstName':firstName, 'lastName':lastName,'contactNum':contactNum},
             }).done( data => {
                 alert(data);
             });

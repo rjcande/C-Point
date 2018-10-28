@@ -13,7 +13,9 @@ $sql_insert = "INSERT INTO users(username, address, email, password) VALUES ('$u
 
 $result =  mysqli_query($conn, $sql_insert);
 
-header('location: ../newproject/index.php');
+echo "You can now Log in!!";
+
+header('location: ../index.php');
 ?>
 
 <!--<script>-->

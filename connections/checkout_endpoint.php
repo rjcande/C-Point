@@ -4,9 +4,9 @@ require 'connect.php';
 session_start();
 if(isset($_SESSION['user'])){
 
-	$name = $_POST['name'];
-	$address = $_POST['address'];
-	$number = $_POST['number'];
+	$name = $_POST['buyerName'];
+	$address = $_POST['buyerAddress'];
+	$number = $_POST['buyerNumber'];
 	$transaction_code = uniqid('jacob1');
 	$user_id = $_POST['user_id'];
 	$payment_id= $_POST['paymentmethod'];

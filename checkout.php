@@ -61,9 +61,9 @@ if(isset($_SESSION['user'])) { ?>
 				<!-- <form> -->
 				    <form method="POST" action="connections/checkout_endpoint.php">
 					<input type="hidden" name="user_id" data-id="<?php echo $query['id']; ?>" id="user_id">
-					Full Name: <input type='text' name='name' class="form-control" data-id="" id="name"><br>
-					Address: <input type='text' name='address' class="form-control" id="address2"><br>
-					Contact Number: <input type='number' name='number' class="form-control" id="number" minlength="11">
+					Full Name: <input type='text' name='buyerName' class="form-control" data-id="" id="buyerName" required><br>
+					Address: <input type='text' name='buyerAddress' class="form-control" id="buyerAddress" required><br>
+					Contact Number: <input type='number' name='buyerNumber' class="form-control" id="buyerNumber" minlength="11" required>
 					<h2>Payment Method</h2>
 					<?php  
 

@@ -154,7 +154,7 @@ function getContent()
 </div>
 </div>
 
-<div class="row">
+<!-- <div class="row">
 <div class="col-12" id="main-pic-2">
     <h2 id="main-pic-text">
     About our Store
@@ -163,10 +163,11 @@ function getContent()
   <center>
     <h3 style="text-align:center">
       The store is located in Cpoint Marikina, 444 Shoe Avenue Ext Concepcion Uno, Marikina
+      Which opens at 8 am and closes at 8 pm
     </h3>
   </center>
 </div>
-</div>
+</div> -->
 
 
 

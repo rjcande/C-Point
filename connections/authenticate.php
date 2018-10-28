@@ -33,6 +33,10 @@ require 'connect.php';
 			}
 		}
 	} elseif(mysqli_num_rows($result)==0) {
-      echo " You Have Entered Incorrect Password";
-    }  
+	  	// echo '<script>
+		// 		alert("You have entered an Incorrect Password");
+		// 	</script>';
+		header('location: ../index.php');  
+	}
+	
 ?>

@@ -1,0 +1,411 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+
+
+
+#intro {
+    background: url("../images/pexels-bg.jpeg")
+    center no-repeat;
+    height: 700px;
+    
+
+}
+#h2m {
+  font-family: 'Oleo Script', cursive;
+   font-style: italic;
+   color: #edae50;
+}
+
+#h2m1 {
+  font-family: 'Oleo Script', cursive;
+   font-style: italic;
+   color: #edae50;
+   text-align: center;
+}
+
+
+.p1 {
+  font-size: 14px;
+}
+
+
+.mask {
+  background: rgba(0, 0, 0, 0.4); /*for mask dark color to cover up the image*/
+  height: 950px;
+}
+
+  body {
+    font: 13px "Source Sans Pro", Arial, Helvetica, sans-serif;
+    background-color: #fbffd8;
+    color: #fff;
+    text-align: center;
+  }
+  .moving-letters {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    margin: auto;
+    height: 200px;
+  }
+
+.card-heading {
+  color: rgb(237, 174, 80);
+}
+
+.card-text {
+  font-size: 14px;
+}
+
+
+
+
+#topnav {
+    
+  box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12);
+  background-color: #111c06;
+
+}
+
+
+
+.nav-item {
+  text-align: center;
+  display: inline-block;
+  
+}
+
+.nav-link { 
+  color: white;
+
+}
+
+#main-text {
+  font-family: 'Open Sans', sans-serif;
+  text-align: center;
+  font-size: 55px;
+
+}
+
+#main-text1 {
+  font-family: 'Open Sans', sans-serif;
+  text-align: center;
+  font-size: 65px;
+  color: #edae50;
+  text-shadow: 3px 3px #31373f;
+}
+
+#monk-text {
+   -webkit-text-stroke-width: 1px;
+   -webkit-text-stroke-color: black;
+}
+
+
+/*main pic*/
+#main-pic {
+  width: 100%;
+  height: 200px;
+  background: url("../images/bespoke.png") no-repeat;
+
+
+}
+
+#main-pic-text {
+ font-family: 'Oleo Script', cursive;
+  text-align: center;
+  font-size: 65px;
+  color: #edae50;
+  text-shadow: 3px 3px #31373f;
+ 
+}
+
+
+
+
+
+
+
+
+#main-pic-p {
+  color:#edae50;
+  margin-left: 600px;
+}
+
+.anatomy {
+  margin-right: auto;
+  margin-left: auto;
+  display: block;
+  width: 60%;
+}
+
+
+.checked {
+    color: orange;
+    
+}
+
+
+.center {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+
+.anatomy {
+  margin: auto;
+}
+
+#dress-shoes {
+  font-family: 'Oleo Script', cursive;
+  text-align: center;
+  font-size: 65px;
+  color: #edae50;
+  text-shadow: 3px 3px #31373f;
+}
+
+#casual-shoes {
+  font-family: 'Oleo Script', cursive;
+  text-align: center;
+  font-size: 65px;
+  color: #edae50;
+  text-shadow: 3px 3px #31373f;
+}
+
+#black-shoes {
+  font-family: 'Oleo Script', cursive;
+  text-align: center;
+  font-size: 65px;
+  color: #edae50;
+  text-shadow: 3px 3px #31373f;
+}
+
+
+/*footer css*/
+
+footer {
+  background-color: #eaebed;
+  clear: both;
+  width: auto;
+  height: auto;
+}
+  
+h6{
+  color: #edae50;
+}
+
+.nav-link {
+  color: white;
+}
+
+#tp {
+  font-family: 'Roboto', sans-serif;
+}
+
+#card-heading {
+  font-family: 'Roboto', sans-serif;
+}
+
+
+/*hover start*/
+.hovereffect {
+  width: 100%;
+  height: 100%;
+  float: left;
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+  cursor: default;
+}
+
+.hovereffect .overlay {
+  position: absolute;
+  overflow: hidden;
+  width: 80%;
+  height: 20%;
+  left: 10%;
+  top: 10%;
+  margin-top: 100px;
+  border-bottom: 1px solid #FFF;
+  border-top: 1px solid #FFF;
+  -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+  transition: opacity 0.35s, transform 0.35s;
+  -webkit-transform: scale(0,1);
+  -ms-transform: scale(0,1);
+  transform: scale(0,1);
+}
+
+.hovereffect:hover .overlay {
+  opacity: 1;
+  filter: alpha(opacity=100);
+  -webkit-transform: scale(1);
+  -ms-transform: scale(1);
+  transform: scale(1);
+}
+
+.hovereffect img {
+  display: block;
+  position: relative;
+  -webkit-transition: all 0.35s;
+  transition: all 0.35s;
+}
+
+.hovereffect:hover img {
+  filter: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg"><filter id="filter"><feComponentTransfer color-interpolation-filters="sRGB"><feFuncR type="linear" slope="0.6" /><feFuncG type="linear" slope="0.6" /><feFuncB type="linear" slope="0.6" /></feComponentTransfer></filter></svg>#filter');
+  filter: brightness(0.6);
+  -webkit-filter: brightness(0.6);
+}
+
+.hovereffect h2 {
+  text-transform: uppercase;
+  text-align: center;
+  position: relative;
+  font-size: 17px;
+  background-color: transparent;
+  color: #FFF;
+  padding: 1em 0;
+  opacity: 0;
+  filter: alpha(opacity=0);
+  -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+  transition: opacity 0.35s, transform 0.35s;
+  -webkit-transform: translate3d(0,-100%,0);
+  transform: translate3d(0,-100%,0);
+}
+
+.hovereffect a, .hovereffect p {
+  color: #FFF;
+  padding: 1em 0;
+  opacity: 0;
+  filter: alpha(opacity=0);
+  -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+  transition: opacity 0.35s, transform 0.35s;
+  -webkit-transform: translate3d(0,100%,0);
+  transform: translate3d(0,100%,0);
+}
+
+.hovereffect:hover a, .hovereffect:hover p, .hovereffect:hover h2 {
+  opacity: 1;
+  filter: alpha(opacity=100);
+  -webkit-transform: translate3d(0,0,0);
+  transform: translate3d(0,0,0);
+}
+
+/*hover end*/
+
+#black {
+  margin: auto;
+}
+
+
+/*effects*/
+
+.ml5 {
+   font-family: 'Oleo Script', cursive;
+  position: relative;
+  font-weight: 300;
+  font-size: 4.5em;
+  color: #edae50;
+  text-shadow: 3px 3px #31373f;
+}
+.ml5 .text-wrapper {
+  position: relative;
+  display: inline-block;
+  padding-top: 0.1em;
+  padding-right: 0.05em;
+  padding-bottom: 0.15em;
+  line-height: 1em;
+}
+.ml5 .line {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  height: 3px;
+  width: 100%;
+  background-color: white;
+  transform-origin: 0.5 0;
+}
+.ml5 .ampersand {
+  font-family: Baskerville, "EB Garamond", serif;
+  font-style: italic;
+  font-weight: 400;
+  width: 1em;
+  margin-right: -0.1em;
+  margin-left: -0.1em;
+}
+.ml5 .letters {
+  display: inline-block;
+  opacity: 0;
+}
+
+.letters1 {
+  font-family: 'Open Sans', sans-serif;
+  position: relative;
+  font-weight: 300;
+  font-size: 0.2em;
+  color: #edae50;
+}
+
+/*end effects*/
+
+
+/*effect 2 */
+
+
+.ml12 {
+  font-weight: 200;
+  font-size: 3.5em;
+  text-transform: uppercase;
+  letter-spacing: 0.5em;
+  position: relative;
+  display: inline-block;
+}
+.ml12{
+  
+  line-height: 1em;
+  text-align: center;
+  
+
+}
+
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #070707;
+    margin: 1em 0;
+    padding: 0; 
+}
+
+.wrapper_title span{
+    color: #fcfafa;
+    background: #191b1d;
+    position: relative;
+    top: -1.5rem;
+    padding: 2px 10px;
+}
+
+.wrapper_title {
+  font-family: 'Roboto', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  text-transform: uppercase;
+  text-align: center;
+  white-space: nowrap;
+  font-size: 1.875em;
+}
+
+/*FOR LOGIN*/
+
+/*CHECKOUT PAGE*/
+
+.containerHeight {
+  margin-top: 8rem;
+}

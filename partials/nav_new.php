@@ -409,65 +409,78 @@ function move_navigation($navigation, $MQ) {
 //}
 ?>
 
-<script type="text/javascript">
+<script>
+$(document).ready(function(){
+
+
+     $('#loginBtn').click(function(){
+            $.ajax({
+                url: './connections/authenticate.php',
+                method: 'post',
+                data:{'username':username, 'password':password},
+                success:function(output){
+                    alert(output);
+                }
+            });
+        });
        
-       $('#registerBtn').click( () => {
+        $('#registerBtn').click( () => {
+            // alert();
+            const usernameREG = $('#regusername').val();
+            const username = $('#regusername').val();
+            const address = $('#address').val();
+            const password = $('#regpassword').val();
+            const firstName = $('#firstName').val();
+            const lastName = $('#lastName').val();
+            const contactNum = $('#contactNum').val();
+            const confirmPassword = $('#confirm_password').val();
+            const email = $('#email').val()
+            //let users = JSON.parse('<?php //echo json_encode($users); ?>'); //to read $users into js lang.
+            let errorFlag = false; //to define the value of the conditions 
+            if(username.length == 0) { //username field is empty
+                $('#regusername').next().css('color', 'red');
+                $('#regusername').next().html('this field is required');
+                errorFlag = true;       
+            } else {
+                $('#regusername').next().css('color', 'green');
+                $('#regusername').next().html(''); 
+                $.ajax({
+                url : './connections/check_username.php',
+                method : 'post',
+                data: {'regusername':usernameREG, 'email':email, 'password':password, 'address':address, 'firstName':firstName, 'lastName':lastName,'contactNum':contactNum},
+            }).done( data => {
+                alert(data);
+            });
 
-           const usernameREG = $('#regusername').val();
-           const username = $('#regusername').val();
-           const address = $('#address').val();
-           const password = $('#regpassword').val();
-           const firstName = $('#firstName').val();
-           const lastName = $('#lastName').val();
-           const contactNum = $('#contactNum').val();
-           const confirmPassword = $('#confirm_password').val();
-           const email = $('#email').val()
-           //let users = JSON.parse('<?php //echo json_encode($users); ?>'); //to read $users into js lang.
-           let errorFlag = false; //to define the value of the conditions 
-           if(username.length == 0) { //username field is empty
-               $('#regusername').next().css('color', 'red');
-               $('#regusername').next().html('this field is required');
-               errorFlag = true;       
-           } else {
-               $('#regusername').next().css('color', 'green');
-               $('#regusername').next().html(''); 
-               $.ajax({
-               url : './connections/check_username.php',
-               method : 'post',
-               data: {'regusername' : usernameREG, 'email': email, 'password': password, 'address':address, 'firstName':firstName, 'lastName':lastName,'contactNum':contactNum},
-           }).done( data => {
-               alert(data);
-           });
+            }
+            
+            if(password.length == 0) {
+                $('#regpassword').next().css('color', 'red');
+                $('#regpassword').next().html('password is required');
+                errorFlag = true;
+            } else {
+                $('#regpassword').next().html('');
+            }
+                
 
-           }
-           
-           if(password.length == 0) {
-               $('#regpassword').next().css('color', 'red');
-               $('#regpassword').next().html('password is required');
-               errorFlag = true;
-           } else {
-               $('#regpassword').next().html('');
-           }
-               
+            if(password !== confirmPassword) {
+                $('#confirm_password').next().css('color', 'red');
+                $('#confirm_password').next().html('passwords did not match');
+                errorFlag = true;
 
-           if(password !== confirmPassword) {
-               $('#confirm_password').next().css('color', 'red');
-               $('#confirm_password').next().html('passwords did not match');
-               errorFlag = true;
-
-           // } else if (password.length == 0) {
-           //  errorFlag = true;
-               
-           } else {
-               // to (blank) satisfy the password did not match condition
-               $('#confirm_password').next().html('');
-           }
-           
-           // if errors in other conditions are true, this line would execute
-           if(errorFlag == false){
-               $('#form1').submit();
-           }
-       });
+            // } else if (password.length == 0) {
+            //  errorFlag = true;
+                
+            } else {
+                // to (blank) satisfy the password did not match condition
+                $('#confirm_password').next().html('');
+            }
+            
+            // if errors in other conditions are true, this line would execute
+            if(errorFlag == false){
+                $('#form1').submit();
+            }
+        });
 
 </script>
     

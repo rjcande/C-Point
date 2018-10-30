@@ -234,7 +234,7 @@ span.psw {
     margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
     border: 1px solid #888;
     width: 30%;
-    height: 930px; 
+    height: 950px; 
 }
 
 .modal-content {
@@ -419,8 +419,8 @@ function move_navigation($navigation, $MQ) {
 
   <!-- Modal Content -->
   <!-- <form class="modal-content animate" action="./connections/register_endpoint.php" method="POST" id="form1"> -->
-  <form class="modal-content-register animate" method="POST" id="form1">
   <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
+  <form class="modal-content-register animate" method="POST" id="form1">
     <h2 id="h2m1">C-point</h2>
 
 
@@ -475,7 +475,7 @@ function move_navigation($navigation, $MQ) {
                 <span></span>
             </div>
       
-      <button type="button" class="btn btn-primary"  onclick="return false;" id="registerBtn">Register</button>
+            <button type="button" class="btn btn-primary"  id="registerBtn" name="registerBtn">Register</button>
 
     </div>
 
@@ -492,9 +492,15 @@ function move_navigation($navigation, $MQ) {
 //}
 ?>
 
-<script type="text/javascript">
+<script>
+$(document).ready(function(){
 
-        $('#loginBtn').click({
+    // $('#registerBtn').click(function(){
+    //     alert()
+    //     // console.log(one two 3);
+    // });
+
+     $('#loginBtn').click(function(){
             $.ajax({
                 url: './connections/authenticate.php',
                 method: 'post',
@@ -502,11 +508,11 @@ function move_navigation($navigation, $MQ) {
                 success:function(output){
                     alert(output);
                 }
-            })
+            });
         });
        
         $('#registerBtn').click( () => {
-
+            // alert();
             const usernameREG = $('#regusername').val();
             const username = $('#regusername').val();
             const address = $('#address').val();
@@ -515,7 +521,7 @@ function move_navigation($navigation, $MQ) {
             const lastName = $('#lastName').val();
             const contactNum = $('#contactNum').val();
             const confirmPassword = $('#confirm_password').val();
-            const email = $('#email').val()
+            const email = $('#email').val();
             //let users = JSON.parse('<?php //echo json_encode($users); ?>'); //to read $users into js lang.
             let errorFlag = false; //to define the value of the conditions 
             if(username.length == 0) { //username field is empty
@@ -528,7 +534,7 @@ function move_navigation($navigation, $MQ) {
                 $.ajax({
                 url : './connections/check_username.php',
                 method : 'post',
-                data: {'regusername' : usernameREG, 'email': email, 'password': password, 'address':address, 'firstName':firstName, 'lastName':lastName,'contactNum':contactNum},
+                data: {'regusername':usernameREG, 'email':email, 'password':password, 'address':address, 'firstName':firstName, 'lastName':lastName,'contactNum':contactNum},
             }).done( data => {
                 alert(data);
             });
@@ -562,7 +568,7 @@ function move_navigation($navigation, $MQ) {
                 $('#form1').submit();
             }
         });
-
+});
 </script>
     
 

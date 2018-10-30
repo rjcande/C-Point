@@ -419,8 +419,8 @@ function move_navigation($navigation, $MQ) {
 
   <!-- Modal Content -->
   <!-- <form class="modal-content animate" action="./connections/register_endpoint.php" method="POST" id="form1"> -->
-  <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
   <form class="modal-content-register animate" method="POST" id="form1">
+  <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
     <h2 id="h2m1">C-point</h2>
 
 

@@ -4,7 +4,7 @@ require 'connections/connect.php';
 session_start();
 
 if(!isset($_SESSION['role_id']) || ($_SESSION['role_id'] != 1)){///
-  header('location: ../newproject/index.php');///
+  header('location: ../index.php');///
 }///
 //////////////////////////////////
 
